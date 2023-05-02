@@ -1,7 +1,6 @@
 # Simple web server using Nodejs and TypeScript
-well, i don't have any idea what's going on, i'll learn so much about built in nodejs libs and how a web server actually works under the hood.
 
-With this project hopefully i could understand how to handle many types of request from a client, e.g when a browser requesting MIME resources for html like javascript or css, etc.
+With this project hopefully i could understand how to handle some request based on the http headers, be fluent in typescript, able to implementing unit, integration, end-2-end testing on a server, and having good understanding  with design pattern/architecture.
 
 ## To-do's
 - Create a simple server that return a web page.
