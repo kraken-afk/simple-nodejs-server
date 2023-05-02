@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target":"ES6",
     "module": "CommonJS",
-    "rootDir": "./src",
     "noEmit": true,
+    "baseUrl": ".",
     "paths": {
-      "@public": ["src/public/"]
+      "@pages/*": ["src/pages/*"],
+      "@App/*": ["src/core/*"]
     }
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
