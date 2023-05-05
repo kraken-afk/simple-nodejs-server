@@ -10,6 +10,7 @@ export type Route = {
 
 /**
  * Wrapper class for http.Server
+ * @class
  */
 export default class Server {
   private server: httpServer;
