@@ -11,4 +11,6 @@ const server = new Server(port, host,
   }
 );
 
+server.register('/', 'pages/home');
+
 server.start();
