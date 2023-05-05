@@ -4,12 +4,17 @@
     "module": "CommonJS",
     "noEmit": true,
     "baseUrl": ".",
+    "rootDir": "src/",
     "paths": {
       "@pages/*": ["src/pages/*"],
-      "@App/*": ["src/core/*"]
+      "@server": ["src/Server.ts"],
+      "@exceptions": ["src/modules/exceptions/"]
     }
   },
   "exclude": [
     "node_modules"
   ],
+  "include": [
+    ".d.ts"
+  ]
 }

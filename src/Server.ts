@@ -5,6 +5,7 @@ import { createServer, Server as httpServer, IncomingMessage, ServerResponse } f
  */
 export default class Server {
   private server: httpServer;
+  private routes: Array<string> = [];
 
   /**
    * @constructor

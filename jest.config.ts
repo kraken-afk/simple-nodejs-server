@@ -65,7 +65,11 @@ module.exports = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  // globals: {
+  //   "ts-jest": {
+  //     "tsConfig": "tsconfig.json"
+  //   },
+  // },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -88,7 +92,9 @@ module.exports = {
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "@exceptions": "<rootDir>/src/modules/exceptions"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -153,18 +159,20 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: [
+  // testMatch: [
     // "**/__tests__/**/*.[jt]s?(x)",
-    "**/spec/?(*.)+([Ss]pec|test).[tj]s?(x)"
-  ],
-
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+    // "**/spec/?(*.)+([Ss]pec|test).[tj]s?(x)",
   // ],
 
+  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+  testPathIgnorePatterns: [
+    "\\\\node_modules\\\\"
+  ],
+
   // The regexp pattern or array of patterns that Jest uses to detect test files
-  // testRegex: [],
+  testRegex: [
+    'spec/.*[Ss]pec.[tj]s(x)?$'
+  ],
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
