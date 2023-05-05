@@ -1,6 +1,6 @@
 import { createServer, Server as httpServer, IncomingMessage, ServerResponse } from 'node:http';
 import { access, constants } from 'node:fs/promises';
-import { extname, basename, resolve } from 'node:path';
+import { extname, resolve } from 'node:path';
 import { PathLike } from 'node:fs';
 
 export type Route = {
@@ -30,7 +30,7 @@ export default class Server {
     this.server = createServer();
 
     if (typeof fn === 'function')
-      this.on('request', fn);
+      on('request', fn);
   }
 
   /**
@@ -63,22 +63,19 @@ export default class Server {
   /**
    * method for registering pages
    * @param url
-   * @param pathToPage - path to html file
+   * @param path - path to html file
    * ```ts
    * Server.register('/home', 'pages/home/' | 'pages/home/index.html)
    * ```
    */
-  public async register(url: string, pathToPage: string): Promise<void> {
+  public async register(url: string, path: string): Promise<void> {
     const { routes } = this;
-    let baseName: string = basename(pathToPage);
 
-    if (!baseName.includes('.')) {
-      if (!RegExp('(.*)/$').test(baseName))
-        baseName += '/';
-      baseName += 'index.html'
+    if (!path.includes('.')) {
+      if (!RegExp('(.*)/$').test(path))
+        path += '/';
+      path += 'index.html'
     }
-
-    const path = 'src/pages/' + baseName;
 
     if (extname(path) !== '.html')
       throw new TypeError('Use html file for register a page');
