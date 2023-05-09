@@ -1,7 +1,6 @@
 import { createServer, Server as httpServer, IncomingMessage, ServerResponse } from 'node:http';
 import { access, constants } from 'node:fs/promises';
 import { extname, resolve } from 'node:path';
-import { PathLike } from 'node:fs';
 
 /**
  * Wrapper class for http.Server
@@ -67,6 +66,7 @@ export default class Server {
   public async register(url: string, path: string): Promise<void> {
     const { routes } = this;
 
+    // adjusting path
     if (!path.includes('.')) {
       if (!RegExp('(.*)/$').test(path))
         path += '/';
