@@ -1,2 +1,2 @@
 declare module "@server";
-declare module "@exceptions"
+declare module "@exceptions";

@@ -1,6 +1,7 @@
 import { createServer, Server as httpServer, IncomingMessage, ServerResponse } from 'node:http';
 import { access, constants } from 'node:fs/promises';
 import { extname, resolve } from 'node:path';
+import { RouteType } from './modules/@types';
 
 /**
  * Wrapper class for http.Server
@@ -8,7 +9,7 @@ import { extname, resolve } from 'node:path';
  */
 export default class Server {
   private server: httpServer;
-  private routes: Map<string, string> = new Map();
+  private routes: RouteType  = new Map();
 
   /**
    * @constructor
@@ -19,13 +20,13 @@ export default class Server {
   constructor(
     protected port: number,
     protected host: string,
-    fn?: (req: IncomingMessage, res: ServerResponse<IncomingMessage>) => void
   ) {
-    const { on } = this;
     this.server = createServer();
 
-    if (typeof fn === 'function')
-      on('request', fn);
+    this.server.on('request',
+      (req: IncomingMessage, res: ServerResponse<IncomingMessage>) => {
+
+    });
   }
 
   /**

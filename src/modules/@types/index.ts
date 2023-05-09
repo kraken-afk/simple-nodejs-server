@@ -1,0 +1,1 @@
+export type RouteType = Map<string, string>;

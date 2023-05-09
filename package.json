@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "test": "jest",
-    "start-dev": "SET NODE_ENV=development && nodemon"
+    "dev": "SET NODE_ENV=development && nodemon"
   },
   "keywords": [],
   "author": "",

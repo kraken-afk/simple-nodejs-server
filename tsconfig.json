@@ -8,7 +8,10 @@
     "paths": {
       "@pages/*": ["src/pages/*"],
       "@server": ["src/Server.ts"],
-      "@exceptions": ["src/modules/exceptions/"]
+      "@exceptions": ["src/modules/exceptions/"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@Router": ["src/modules/router/*"],
+      "@types": ["src/module/@types/"]
     }
   },
   "exclude": [
