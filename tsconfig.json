@@ -9,7 +9,7 @@
       "@pages/*": ["src/pages/*"],
       "@server": ["src/Server.ts"],
       "@exceptions": ["src/modules/exceptions/"],
-      "@interfaces/*": ["src/interfaces/*"],
+      "@interfaces/*": ["src/modules/interfaces/*"],
       "@Router": ["src/modules/router/*"],
       "@types": ["src/module/@types/"]
     }
