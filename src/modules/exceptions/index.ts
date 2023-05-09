@@ -1,1 +1,3 @@
-export const NotFoundError = require('./NotFoundError');
+import NotFoundError from './NotFoundError';
+
+export default { NotFoundError }

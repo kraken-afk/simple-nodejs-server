@@ -3,18 +3,13 @@ import { access, constants } from 'node:fs/promises';
 import { extname, resolve } from 'node:path';
 import { PathLike } from 'node:fs';
 
-export type Route = {
-  url: PathLike,
-  path: PathLike
-}
-
 /**
  * Wrapper class for http.Server
  * @class
  */
 export default class Server {
   private server: httpServer;
-  private routes: Array<Route> = [];
+  private routes: Map<string, string> = new Map();
 
   /**
    * @constructor
@@ -83,9 +78,9 @@ export default class Server {
 
     await access(resolve(__dirname, path), constants.R_OK);
 
-    if (routes.find((item: Route)=> item.url === url))
+    if (routes.has(url))
       throw new Error(`Route of ${url} is already exist`);
 
-    routes.push({ url, path });
+    routes.set(url, path);
   }
 }
